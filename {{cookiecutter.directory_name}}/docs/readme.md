@@ -18,6 +18,7 @@
 
     ### Modules Added
 
+        - Designed to work with DRF, intended to reply in json and not in template.
         - Factory model from which other models will inherit.
         - Overriding delete function to make status false and store its deletion time whenever deletion is performed.
         - Custom User model making it scalable.
@@ -29,6 +30,17 @@
         - Email setup using sendgrid (not used in project)
         - SMS integration using Twilio (not used in project)
         - Slack messaging integrated (not used in project)
+        - Swagger added to find Documentation of APIs
+
+
+
+# Procedure -
+
+    - Install cookiecutter .
+    - create project using:
+            cookiecutter https://github.com/abhishekmodak/django-rest-starter-boilerplate.git
+    - Enter all your data.
+    - Start customizing
 
 
 Author - {{ cookiecutter.author_name }}
