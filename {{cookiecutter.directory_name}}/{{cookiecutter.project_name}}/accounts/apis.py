@@ -2,12 +2,13 @@ from django.contrib.auth import authenticate
 from django.conf import settings
 from rest_framework import generics, permissions, response, status, filters
 from rest_framework.views import APIView
-
+from rest_framework import serializers
 from . import serializers as account_serializer
 from . import models as account_model
 import django_filters
-User = settings.AUTH_USER_MODEL
-
+from rest_framework.authtoken.models import Token
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 from django.contrib.auth import login, logout
 
@@ -30,13 +31,13 @@ class LoginView(APIView):
         password = data.get('password', None)
 
         try:
-            user = User.objects.get(user_id=username)
+            user = User.objects.get(username=username)
             if not user.is_active:
                 raise serializers.ValidationError(
                     self.error_messages['inactive_account']
                 )
 
-        except User.DoesNotExist:
+        except:
             raise serializers.ValidationError(
                 self.error_messages['invalid_username']
             )
@@ -50,7 +51,7 @@ class LoginView(APIView):
 
             data = token_serializer.data
 
-            return Response(
+            return response.Response(
                 data=data,
                 status=status.HTTP_200_OK
                 )
@@ -94,10 +95,10 @@ class ChangePassword(APIView):
                 'password': password
                 }
             Token.objects.filter(user=user).delete()
-            return Response(_response)
+            return response.Response(_response)
 
         _response['msg'] = 'User id is not present'
-        return Response(_response, status=status.HTTP_400_BAD_REQUEST)
+        return response.Response(_response, status=status.HTTP_400_BAD_REQUEST)
 
 
 
