@@ -3,7 +3,7 @@
 # Want any change make here
 # Don't touch base.py, dev.py or prod.py unnecessarily
 
-SETUP = "DEVELOPMENT"   #DEVELOPMENT/PRODUCTION
+SETUP = {{ cookiecutter.setup }}   #DEVELOPMENT/PRODUCTION
 
 AUTH_USER_MODEL = "accounts.User"
 
@@ -27,7 +27,7 @@ EMAIL_HOST_USER = 'sendgrid_username'
 EMAIL_HOST_PASSWORD = 'sendgrid_password'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_SENDER = 'sender_email'
+EMAIL_SENDER = {{ cookiecutter.email }}
 
 
 SLACK_CHANNEL = 'https://hooks.slack.com/services/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',

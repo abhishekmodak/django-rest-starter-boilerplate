@@ -21,7 +21,7 @@ from rest_framework.schemas import get_schema_view
 from rest_framework_swagger import renderers
 
 schema_view = get_schema_view(
-                title="Starter API doc",
+                title="{{ cookiecutter.project_name }} API doc",
                 public=True,
                 renderer_classes=[
                         renderers.OpenAPIRenderer,
