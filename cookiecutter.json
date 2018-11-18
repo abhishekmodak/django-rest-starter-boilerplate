@@ -1,0 +1,11 @@
+{
+    "directory_name": "directory",
+    "project_name": "DRF-Starter",
+    "description": "Behold My Awesome Project!",
+    "author_name": "Abhishek Modak",
+    "domain_name": "example.com",
+    "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@{{cookiecutter.domain_name}}",
+    "version": "0.1.0",
+    "timezone": "UTC",
+    "setup": "DEVELOPMENT"
+}
