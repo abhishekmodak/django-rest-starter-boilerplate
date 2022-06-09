@@ -3,7 +3,7 @@ binaryornot==0.4.4
 certifi==2018.10.15
 chardet==3.0.4
 Click==7.0
-cookiecutter==1.6.0
+cookiecutter==2.1.1
 coreapi==2.3.3
 coreschema==0.0.4
 Django==2.1.3
